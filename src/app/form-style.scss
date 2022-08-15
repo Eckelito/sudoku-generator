@@ -1,0 +1,38 @@
+.button {
+    background-color: rgb(173, 173, 173);
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  form{
+    align-items: center;
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    width: 200px;
+    font-size: 24px;
+    font-family:sans-serif;
+    margin: 20px;
+    padding: 10px;
+
+  }
+
+  input[type=number]{
+    width: 40%;
+    font-size: 20px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  select{
+    font-size: 16px;
+  }

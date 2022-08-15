@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit($event)">
+    <label>percent visible</label>
+    <br>
+    <input name="percentVisible" class="inputField" type=number value=100 min=0 max=100 step=1>
+    <br>
+    <label>display setting</label>
+    <br>
+
+    <select name="displaySetting">
+        <option *ngFor="let option of options, let i = index" [value] = "option.value" [selected]="i == 0">
+            {{ option.name }}
+        </option>
+    </select>
+    <br>
+
+    <button class="button" type="submit" name="submit">update</button>
+</form>

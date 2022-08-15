@@ -1,0 +1,14 @@
+<div class="board" [ngStyle]="setBoard()">
+    <ng-container *ngFor="let row of sudokuCore.sudoku.rows, let i = index">
+        <ng-container *ngFor="let cell of row, let j = index">
+            <div [ngClass]="{
+                'top-edge': isAtEdge(i, 0),
+                'right-edge': isAtEdge(j, 1),
+                'bottom-edge': isAtEdge(i, 1),
+                'left-edge': isAtEdge(j, 0)
+            }" class="cell">
+            {{cell.val | valueDisplay: sudokuCore.getDisplaySetting() | valueHide: cell.visible}}
+        </div>
+        </ng-container>
+    </ng-container>
+</div>
