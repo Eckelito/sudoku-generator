@@ -1,48 +1,71 @@
-:host{
+:host {
   background-color: white;
   margin: auto;
 }
 
 .board {
-    width: 70vh;
-    height: 70vh;
-    display: grid;
-    grid-template: repeat(9, 1fr) / repeat(9, 1fr);
-    border-style: solid;
-    border-width: (7/9) * 1vh;
-    border-color: black;
-    border-spacing: 0;
-    background-color: black;
-    font-size: (7/9) * 8vh;
-    margin: auto;
+  width: 70vh;
+  height: 70vh;
+  display: grid;
+  grid-template: repeat(9, 1fr) / repeat(9, 1fr);
+  border-style: solid;
+  border-width: (7/9) * 1vh;
+  border-color: black;
+  border-spacing: 0;
+  background-color: black;
+  font-size: (7/9) * 8vh;
+  margin: auto;
 }
 
 .cell {
-    border-style: solid;
-    border-width: (7/9) * 0.2vh;
-    border-color: black;
-    background-color: white;
-    margin: 0vh;
-    padding: 0vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0vh;
-    user-select: none
+  border-style: solid;
+  border-width: (7/9) * 0.2vh;
+  border-color: black;
+  background-color: white;
+  margin: 0vh;
+  padding: 0vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0vh;
+  user-select: none
 }
 
+$area-border-width: (
+  7/9) * 0.4vh;
+$area-border-width-min: 2px;
+
 .top-edge {
-    border-top-width: (7/9) * 0.4vh;
+  border-top-width: $area-border-width;
 }
 
 .right-edge {
-    border-right-width: (7/9) * 0.4vh;
+  border-right-width: $area-border-width;
 }
 
 .bottom-edge {
-    border-bottom-width:(7/9) * 0.4vh;
+  border-bottom-width: $area-border-width;
 }
 
 .left-edge {
-    border-left-width: (7/9) * 0.4vh;
+  border-left-width: $area-border-width;
+}
+
+@media only screen and (max-height: 660px) {
+  .top-edge {
+    border-top-width: $area-border-width-min;
+  }
+
+  .right-edge {
+    border-right-width: $area-border-width-min;
+  }
+
+  .bottom-edge {
+    border-bottom-width: $area-border-width-min;
+  }
+
+  .left-edge {
+    border-left-width: $area-border-width-min;
+  }
+
 }
