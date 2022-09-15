@@ -1,3 +1,19 @@
-input[type=number]{
-    width: 50%;
-  }
+input[type=number] {
+  width: 50%;
+}
+
+form {
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 10px;
+
+}
+
+
+*{
+  font-size: 14px;
+}
+

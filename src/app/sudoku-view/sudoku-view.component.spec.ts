@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SudokuCreateComponent } from './sudoku-create.component';
+import { SudokuViewComponent } from './sudoku-view.component';
 
-describe('SudokuCreateComponent', () => {
-  let component: SudokuCreateComponent;
-  let fixture: ComponentFixture<SudokuCreateComponent>;
+describe('SudokuViewComponent', () => {
+  let component: SudokuViewComponent;
+  let fixture: ComponentFixture<SudokuViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SudokuCreateComponent ]
+      declarations: [ SudokuViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SudokuCreateComponent);
+    fixture = TestBed.createComponent(SudokuViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

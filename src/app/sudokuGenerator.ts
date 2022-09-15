@@ -12,7 +12,6 @@ export interface Cell {
 }
 
 export class Sudoku {
-
     list: Cell[];
     columns: Cell[][];
     rows: Cell[][];
@@ -91,7 +90,7 @@ function populateGroups(): void {
     }
 }
 
-function areaContains(area: Cell[], n: number): Boolean {
+function areaContains(area: Cell[], n: number): boolean {
     for (let cell of area) {
         if (cell.val === n) {
             return true;
@@ -171,4 +170,4 @@ export function generateSudoku(rw: number): Sudoku {
 
     return new Sudoku(list, columns, rows, regions, regionWidth, gridWidth);
 
-} 
+}

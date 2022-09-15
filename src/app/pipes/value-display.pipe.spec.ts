@@ -1,4 +1,4 @@
-import { ValueDisplayPipe } from '../pipes/value-display.pipe';
+import { ValueDisplayPipe } from './value-display.pipe';
 
 describe('ValueDisplayPipe', () => {
   it('create an instance', () => {

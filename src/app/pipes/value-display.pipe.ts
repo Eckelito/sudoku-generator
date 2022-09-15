@@ -8,7 +8,7 @@ export class ValueDisplayPipe implements PipeTransform {
 
 
   digToLetter(dig: number, minVal = 0, offset = 0): string{
-    return dig > minVal ? String.fromCharCode((64 - offset) + dig) : dig.toString();
+    return dig >= minVal ? String.fromCharCode((64 - offset) + dig) : dig.toString();
   }
 
   transform(value: number, option: number): string {

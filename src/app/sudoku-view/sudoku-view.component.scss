@@ -1,0 +1,17 @@
+mat-drawer{
+  width: 300px;
+  background-color:#fafafa;
+  height: 100%;
+  position:fixed;
+}
+
+mat-drawer-content{
+  display: flex;
+  background-color: white;
+  margin: auto;
+  height: 100%;
+}
+
+mat-drawer-container{
+  height:100%;
+}

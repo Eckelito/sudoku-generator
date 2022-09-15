@@ -1,19 +1,25 @@
+:host{
+  background-color: white;
+  margin: auto;
+}
+
 .board {
-    width: 90vh;
-    height: 90vh;
+    width: 70vh;
+    height: 70vh;
     display: grid;
     grid-template: repeat(9, 1fr) / repeat(9, 1fr);
     border-style: solid;
-    border-width: 1vh;
+    border-width: (7/9) * 1vh;
     border-color: black;
     border-spacing: 0;
     background-color: black;
-    font-size: 8vh;
+    font-size: (7/9) * 8vh;
+    margin: auto;
 }
 
 .cell {
     border-style: solid;
-    border-width: 0.2vh;
+    border-width: (7/9) * 0.2vh;
     border-color: black;
     background-color: white;
     margin: 0vh;
@@ -26,17 +32,17 @@
 }
 
 .top-edge {
-    border-top-width: 0.4vh;
+    border-top-width: (7/9) * 0.4vh;
 }
 
 .right-edge {
-    border-right-width: 0.4vh;
+    border-right-width: (7/9) * 0.4vh;
 }
 
 .bottom-edge {
-    border-bottom-width: 0.4vh;
+    border-bottom-width:(7/9) * 0.4vh;
 }
 
 .left-edge {
-    border-left-width: 0.4vh;
+    border-left-width: (7/9) * 0.4vh;
 }
