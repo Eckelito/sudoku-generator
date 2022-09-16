@@ -7,20 +7,23 @@ import { generateSudoku, Sudoku, Cell } from './sudokuGenerator';
 @Injectable({
   providedIn: 'root'
 })
-export class SudokuCoreService {
 
+export class SudokuCoreService {
   readonly DIGITS = 0;
   readonly LETTERS = 1;
   readonly DIGITS_AND_LETTERS = 2;
 
   sudoku!: Sudoku;
   shuffledList!: Cell[];
+  private name = "";
   private percentVisible = 100;
   private displaySetting = this.DIGITS;
 
   constructor() {
     this.createSudoku(3);
   }
+
+
 
   setPercentVisible(percent: number) {
     this.percentVisible = percent;
@@ -30,12 +33,24 @@ export class SudokuCoreService {
     }
   }
 
-  setDisplaySetting(option: number){
+  getPercentVisible(){
+    this.percentVisible;
+  }
+
+  setDisplaySetting(option: number) {
     this.displaySetting = option;
   }
 
-  getDisplaySetting(){
+  getDisplaySetting() {
     return this.displaySetting;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  setName(name: string){
+    this.name = name;
   }
 
   createSudoku(regionWidth: number) {

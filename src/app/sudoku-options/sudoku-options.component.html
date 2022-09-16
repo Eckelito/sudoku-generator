@@ -1,9 +1,9 @@
 <form [formGroup]="settingsForm" class="mat-app-background">
   <mat-form-field appearance="fill">
-    <mat-label>region width</mat-label>
+    <mat-label>size</mat-label>
     <mat-select formControlName="sudokuSize" [(value)]="sudokuSizeDefault">
       <mat-option *ngFor="let option of sudokuSizeOptions" [value]="option">
-        {{option + 'x' + option}}
+        {{option * option + ' x ' + option * option}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -12,17 +12,34 @@
   <mat-form-field appearance="fill">
     <mat-label>display setting</mat-label>
     <mat-select formControlName="display" [(value)]="displaySettingDefault">
-      <mat-option *ngFor="let option of options" [value]="option">
+      <mat-option *ngFor="let option of displayOptions" [value]="option">
         {{ option.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <br>
   <mat-label>percentage visible</mat-label>
-  <br>
-  <mat-slider #thisSlider min="0" max="100" step="1" value="visiblePercentageDefault" thumbLabel
+  <mat-slider matInput #thisSlider min="0" max="100" step="1" value="visiblePercentageDefault" thumbLabel
     [displayWith]="toPercent" formControlName="percentVisible" (input)="onInputChange($event)"
     (window:mouseup)="hideLabel(thisSlider)" color="primary">
   </mat-slider>
   <br>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+  <mat-form-field appearance="fill" >
+    <mat-label>Name</mat-label>
+    <input matInput autocomplete="off" formControlName="name">
+  </mat-form-field>
+  <br>
+
+  <button mat-fab (click)="sudokuStorage.saveSudoku()" [disabled]="!settingsForm.get('name')?.value">
+    <mat-icon>save2</mat-icon>
+  </button>
+  <br>
+  <br>
+  <button mat-fab (click)="sudokuStorage.sudokuNames()">
+    <mat-icon>info</mat-icon>
+  </button>
 </form>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SudokuCoreService } from '../sudoku-core.service';
+import { SudokuStorageService } from '../sudoku-storage.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RangeValidation } from '../validators/range-validation';
+import { MatInputModule } from '@angular/material/input';
 import { MatSlider } from '@angular/material/slider';
 
 
@@ -12,20 +14,18 @@ import { MatSlider } from '@angular/material/slider';
 })
 export class SudokuOptionsComponent implements OnInit {
 
-  constructor(public sudokuCore: SudokuCoreService, private rangeValidation: RangeValidation) {
+  constructor(public sudokuCore: SudokuCoreService, public sudokuStorage: SudokuStorageService, private rangeValidation: RangeValidation) {
   }
   isCreatingSudoku = false;
 
-
-
   sudokuSizeOptions = [2, 3, 4]
   sudokuSizeDefault = 3;
-  options = [
+  displayOptions = [
     { name: "digits", value: 0 },
     { name: "letters", value: 1 },
     { name: "letters above 9 only", value: 2 }
   ]
-  displaySettingDefault = this.options[0];
+  displaySettingDefault = this.displayOptions[0];
   visiblePercentageDefault = 100;
 
   toPercent(num: number): string {
@@ -41,6 +41,9 @@ export class SudokuOptionsComponent implements OnInit {
     display: new FormControl(this.displaySettingDefault, [
       Validators.required
     ]),
+    name: new FormControl('', [
+      Validators.required
+    ])
   }
   )
 
@@ -52,6 +55,9 @@ export class SudokuOptionsComponent implements OnInit {
     slider.blur();
   }
 
+  printSudokuList(event: any) {
+    alert(JSON.stringify(this.sudokuCore.sudoku));
+  }
 
   ngOnInit(): void {
     this.settingsForm.get("sudokuSize")!.valueChanges.subscribe((n) => {
@@ -64,10 +70,9 @@ export class SudokuOptionsComponent implements OnInit {
     );
     this.settingsForm.get("percentVisible")!.valueChanges.subscribe((n) =>
       this.sudokuCore.setPercentVisible(n ? n : 0));
-    this.settingsForm.get("display")!.valueChanges.subscribe((o) => {
-      this.sudokuCore.setDisplaySetting(o ? o.value : 0)
-    }
-    );
-
+    this.settingsForm.get("display")!.valueChanges.subscribe((o) =>
+      this.sudokuCore.setDisplaySetting(o ? o.value : 0));
+    this.settingsForm.get("name")!.valueChanges.subscribe((s) =>
+      this.sudokuCore.setName(s ?? ''));
   }
 }
