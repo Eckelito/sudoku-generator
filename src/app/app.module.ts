@@ -9,7 +9,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatTableModule } from "@angular/material/table";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SudokuViewerComponent } from './sudoku-viewer/sudoku-viewer.component';
@@ -31,6 +32,7 @@ import { ListViewComponent } from './list-view/list-view.component';
     ListViewComponent,
   ],
   imports: [
+    MatTabsModule,
     MatFormFieldModule,
     MatDividerModule,
     MatButtonModule,
@@ -39,6 +41,7 @@ import { ListViewComponent } from './list-view/list-view.component';
     MatSidenavModule,
     MatIconModule,
     MatInputModule,
+    MatTableModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SudokuCoreService } from './sudoku-core.service';
+import { Sudoku, Cell } from './sudokuGenerator';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,9 @@ export class SudokuStorageService {
   saveSudoku() {
     this.retrieveSudokuList();
     let sudokuData = {
-      sudoku: this.sudokuCore.sudoku,
       name: this.sudokuCore.getName(),
+      sudoku: this.sudokuCore.sudoku,
+      shuffledList: this.sudokuCore.shuffledList,
       settings: {
         percentVisible: this.sudokuCore.getPercentVisible(),
         displaySetting: this.sudokuCore.getDisplaySetting()
@@ -40,12 +42,24 @@ export class SudokuStorageService {
     else {
       alert("a sudoku with this name already exists");
     }
-
+    this.retrieveSudokuList();
   }
 
-  sudokuNames() {
-    this.retrieveSudokuList();
-    alert(this.sudokuList.map((sudokuEntry) => sudokuEntry.name))
+  loadSudoku(input: any) {
+    Object.setPrototypeOf(input.sudoku, Sudoku.prototype);
+    this.sudokuCore.sudoku = input.sudoku;
+    this.sudokuCore.setDisplaySetting(input.settings.displaySetting);
+    this.sudokuCore.setPercentVisible(input.settings.percentVisible);
+    this.sudokuCore.shuffledList = input.shuffledList;
+    this.sudokuCore.setName(input.name);
+    this.sudokuCore.refreshSettings.next();
+  }
+
+  deleteAllSudokus() {
+    if (window.confirm('Delete all stored Sudokus?')){
+      localStorage.clear();
+      this.retrieveSudokuList();
+    }
   }
 
   ngOnInit(): void {

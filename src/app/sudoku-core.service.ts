@@ -2,6 +2,9 @@ import { getNumberOfCurrencyDigits } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { shuffleArray } from './shuffleArray';
 import { generateSudoku, Sudoku, Cell } from './sudokuGenerator';
+import { Observable, Subject } from 'rxjs';
+
+
 
 
 @Injectable({
@@ -19,11 +22,12 @@ export class SudokuCoreService {
   private percentVisible = 100;
   private displaySetting = this.DIGITS;
 
+  public refreshSettings = new Subject<void>();
+  public refreshSettings$ = this.refreshSettings.asObservable();
+
   constructor() {
     this.createSudoku(3);
   }
-
-
 
   setPercentVisible(percent: number) {
     this.percentVisible = percent;
@@ -33,15 +37,15 @@ export class SudokuCoreService {
     }
   }
 
-  getPercentVisible(){
-    this.percentVisible;
+  getPercentVisible(): number{
+    return this.percentVisible;
   }
 
   setDisplaySetting(option: number) {
     this.displaySetting = option;
   }
 
-  getDisplaySetting() {
+  getDisplaySetting(): number {
     return this.displaySetting;
   }
 

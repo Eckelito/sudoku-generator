@@ -1,3 +1,4 @@
+
 <div class="board" [ngStyle]="setBoard()">
     <ng-container *ngFor="let row of sudokuCore.sudoku.rows, let i = index">
         <ng-container *ngFor="let cell of row, let j = index">
@@ -12,4 +13,3 @@
         </ng-container>
     </ng-container>
 </div>
-

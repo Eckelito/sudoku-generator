@@ -167,7 +167,5 @@ export function generateSudoku(rw: number): Sudoku {
         createBoard(rw);
         succesful = run();
     } while (!succesful);
-
     return new Sudoku(list, columns, rows, regions, regionWidth, gridWidth);
-
 }

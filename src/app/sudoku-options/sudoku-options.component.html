@@ -11,7 +11,7 @@
   <br>
   <mat-form-field appearance="fill">
     <mat-label>display setting</mat-label>
-    <mat-select formControlName="display" [(value)]="displaySettingDefault">
+    <mat-select formControlName="display" [value]="displaySettingDefault">
       <mat-option *ngFor="let option of displayOptions" [value]="option">
         {{ option.name }}
       </mat-option>
@@ -19,7 +19,7 @@
   </mat-form-field>
   <br>
   <mat-label>percentage visible</mat-label>
-  <mat-slider matInput #thisSlider min="0" max="100" step="1" value="visiblePercentageDefault" thumbLabel
+  <mat-slider matInput #thisSlider min="0" max="100" step="1" [value]="visiblePercentageDefault" thumbLabel
     [displayWith]="toPercent" formControlName="percentVisible" (input)="onInputChange($event)"
     (window:mouseup)="hideLabel(thisSlider)" color="primary">
   </mat-slider>
@@ -39,7 +39,7 @@
   </button>
   <br>
   <br>
-  <button mat-fab (click)="sudokuStorage.sudokuNames()">
-    <mat-icon>info</mat-icon>
+  <button mat-fab (click)="sudokuStorage.deleteAllSudokus()">
+    <mat-icon>delete</mat-icon>
   </button>
 </form>

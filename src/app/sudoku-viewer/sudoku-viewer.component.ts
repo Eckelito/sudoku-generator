@@ -10,13 +10,13 @@ import { SudokuOptionsComponent } from '../sudoku-options/sudoku-options.compone
 export class SudokuViewerComponent implements OnInit {
 
 
-  constructor(public sudokuCore : SudokuCoreService) {
+  constructor(public sudokuCore : SudokuCoreService, ) {
   }
 
   setBoard() {
     return {
       'grid-template': `repeat(${this.sudokuCore.sudoku.gridWidth}, 1fr) / repeat(${this.sudokuCore.sudoku.gridWidth}, 1fr)`,
-      'font-size': `${(7/9) * (90 / 12) * (9 / this.sudokuCore.sudoku.gridWidth)}vh`
+      'font-size': `${(7/9) * (90 / 12) * (9 / this.sudokuCore.sudoku.gridWidth)}vmin`
     }
   }
 

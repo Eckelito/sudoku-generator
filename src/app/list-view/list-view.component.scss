@@ -1,0 +1,24 @@
+:host {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+}
+
+table {
+  width: 100%;
+}
+
+.option{
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #4052B5;
+  color: white;
+}
+
+.option:hover > td{
+  color: white;
+}

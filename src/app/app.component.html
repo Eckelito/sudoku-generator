@@ -1,1 +1,4 @@
-<app-sudoku-view></app-sudoku-view>
+<mat-tab-group [(selectedIndex)]="selectedTab">
+  <mat-tab label="stored sudokus"> <app-list-view (changeTabEmit)="changeTab($event)"></app-list-view> </mat-tab>
+  <mat-tab label="display"> <app-sudoku-view></app-sudoku-view> </mat-tab>
+</mat-tab-group>
